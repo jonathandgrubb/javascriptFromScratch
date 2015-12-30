@@ -108,7 +108,8 @@ program flow:
             break;
     }
 
-Truth 
+Truth:
+
     values:     true and false
     operators:  && || !
     falsy:      null, undefined, NaN, "", 0
@@ -121,4 +122,135 @@ Truth
     var isOld = true;
     // will stop evaluating if isMale is false (useful)
     var isOldMan = isMale && isOld; 
+
+Functions:
+    naming
+    anonymous
+    params
+        too many? ignored
+        too few?  undefined
+
+    // named function (sum is 13)
+    function add(x, y) {
+        var z = x + y;
+        return z;
+    }
+    var sum = add(5,7);
+
+    // anonymous function (sum is 13)
+    var add = function (x, y) {
+        var z = x + y;
+        return z;
+    }
+    var sum = add(5,7);
+
+    // too few parameters (sum is NaN - not a number)
+    function add(x, y) {
+        var z = x + y;
+        return z;
+    }
+    var sum = add(5);
+
+    // too many parameters (sum is 13) and the last one is ignored
+    function add(x, y) {
+        var z = x + y;
+        return z;
+    }
+    var sum = add(5,7,9);
+    output.innerHTML = sum; // updates a div on the web page
+
+    // no return value: undefined (a function that doesn't return a value returns 'undefined')
+    function add(x, y) {
+        var z = x + y;
+        return;
+    }
+    var sum = add(5,7,9);
+
+    // hoisting - calling the function before it is defined (declaration order doesn't matter)
+    var sum = add(5,7);
+    var function add(x, y) {
+        var z = x + y;
+        return z;
+    }
+
+    // scope
+    var constant = 32; // global scope
+    function celciusToFarenheit( temperature ) {
+        var multiplier = 9;
+        var divisor = 5;
+        var farenheitTemp = temperature * multiplier / divisor + constant; // constant can be used here
+        return farenheitTemp;
+    }
+    output.innerHTML = celciusToFarenheit
+    var z = multipler; // multiplier is not visible here
+
+    var x = 15;
+    if (x < 20) {
+        var y = x;
+    }
+    var z = y;
+    output.innerHTML = z;  // this actually works because wasn't declared inside a function
+
+    // nested functions
+    function hypotenuse() {
+        var side1 = 3;
+        var side2 = 4;
+
+        function squareSide1() {
+            return side1 * side1; // has access to vars in the outer function
+        }
+
+        function squareSide2() {
+            return side2 * side2;
+        }
+
+        return Math.sqrt(squareSide1() + squareSide2());
+    }
+    output.innerHTML=hypotenuse();
+
+    // braces to not create scope... only functions
+
+    // global vs. local
+
+    // closure - 
+    // a function scopes its variables at the time it is declared and not at the time it's run
+    var scope = "global";
+    function testScope() {
+        var scope = "local";
+        function innerFunc() { return scope; }
+        return innerFunc;
+    }
+    var innerFunc = testScope();
+    var answer = innerFunc()
+    // or this... var answer = testScope()();
+    output.innerHTML = answer;
+
+    // here, x will stay in scope any time this function is run because someFunction() creates a closure over it ever if the actual variable in global scope goes out of scope
+    var x = 50
+    function someFunction() {
+        var y = 100;
+        return x = y;
+    }
+    var answer = someFunction()
+    output.innerHTML = answer;
+
+    // recursion - when a function calls itself
+    function func1(num, exp) {
+        if (exp === 0) {
+            return 1;
+        }
+        return num * func1(num, exp-1);
+    }
+    var answer = nonRecursiveFunc(2,10);
+    output.innerHTML = answer;
+    // anything you can write recursively you can write iteratively
+    function nonRecursivefunc(num, exp) {
+        var retVal = 1;
+        for (var i = 0; i < exp; i++) {
+            retVal *= num;
+        }
+        return retVal;
+    }
+    var answer = nonRecursiveFunc(2,10);
+    output.innerHTML = answer;
 
