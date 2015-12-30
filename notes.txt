@@ -1,1 +1,124 @@
-stuff
+books:
+    Javascript: The Good Parts
+
+online editors:
+    plnkr.co (Plunker)
+
+building blocks:
+    numbers:       5, 6.4
+    strings:       "text"
+    escaping:      \
+    variables:     var myVar = 5;
+    concatenation: +
+    operators:     binary:  +, =, ==, +=, -=, %, &&, ||, 
+                   unary:   ++, --, !
+                   ternary: (boolean) ? true : false
+    white space:   you can remove it in most situations (unless they're separating keywords and var names)
+    end line term: ';' (but not always required)
+    expressions:   evaluate to a value
+    statements:    any set of expressions that has an impact on the program (assigning, calling)
+    functions:
+    objects: 
+    control flow:  if, else if, else, while, do while, break, switch
+
+inline javascript:
+
+  <!DOCTYPE html>
+      <head> </head>
+      <body>
+          <h1>Hello!</h1>
+          <script>
+              alert(3+5)
+              alert("Hello Javascript")
+          </script>
+      </body>
+  </html>
+  
+refer to external file:
+
+  <!DOCTYPE html>
+      <head> </head>
+      <body>
+          <h1>Hello!</h1>
+          <script src="script.js"></script>
+      </body>
+  </html>
+
+program flow:
+
+    // ifStatement.js
+    var ageAsString = prompt("What is your age? ", "");
+    var age = Number(ageAsString);
+    if (age < 40) {  // good practice to use the braces
+        alert("Oh you're so young...");
+    } else if (age == 40) {
+    } else {
+        alert("Don't worry, you're young at heart");
+    }
+    alert("Thank you");
+
+    // while.js
+    var ageAsString = prompt("What is your age? ", "");
+    var string = "";
+    while (age > 0) {
+        string += Happy Birthday \n";
+        age -= 1;
+    }
+    alert(string);
+
+    // doWhile.js (will run the loop at least once)
+    var ageAsString = prompt("What is your age? ", "");
+    var string = "";
+    do {
+        string += Happy Birthday \n";
+        age -= 1;
+    } while (age > 0)
+    alert(string);
+
+    // for.js
+    var ageAsString = prompt("What is your age? ", "");
+    var string = "";
+    for (var theAge = age; theAge > 0; theAge -= 1) {
+        string += Happy Birthday \n";
+    }
+    alert(string);
+
+    // break.js
+    var ageAsString = prompt("What is your age? ", "");
+    var string = "";
+    for (var theAge = age; theAge > 0; theAge -= 1) {
+        string += Happy Birthday \n";
+        // print a max of 7
+        if (counter % 7 == 0)
+            break;
+    }
+    alert(string);
+
+    // switch.js
+    var animal = "dog"
+    switch(animal) {
+        case "cat":
+            alert("meow");
+            break;
+        case "dog":
+            alert("woof");
+            break;
+        default:
+            alert("Unknown animal!");
+            break;
+    }
+
+Truth 
+    values:     true and false
+    operators:  && || !
+    falsy:      null, undefined, NaN, "", 0
+    truthy:     everything else
+    equality:   simple equality ==   (0==false  is true)
+                exact equality  ===  (0===false is false)
+
+
+    var isMale = true;
+    var isOld = true;
+    // will stop evaluating if isMale is false (useful)
+    var isOldMan = isMale && isOld; 
+
