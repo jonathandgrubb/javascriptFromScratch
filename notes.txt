@@ -254,3 +254,70 @@ Functions:
     var answer = nonRecursiveFunc(2,10);
     output.innerHTML = answer;
 
+
+
+Objects and Collections:
+
+    . objects are collections of properties
+    . you can add additinal properties "on the fly"
+    . non-exisistant properties return undefined
+    . objects can have functions (methods)
+
+    var dog = {
+        name: "Charlie",
+        breed: "Mix",
+        weight: 12,
+        color: "Brown"
+    };
+    var dogWeight = dog.weight;    // access existing property
+    dog.disposition = "wonderful"; // adding a property on the fly
+    var height = dog.height;       // undefined
+    dog.weight = 15;               // the object is mutable
+
+    // array - the only collection class in JS
+    // length is the number of items in the array
+    // push/pop
+    // for can iterate
+    var empty = [];
+    empty[0] = 1;
+    empty[1] = 2;
+    alert(empty);   // 1,2
+
+    var primes = [1, 2, 3, 5, 7, 11];   // initialized with values
+    var thirdPrime = prime[2];
+    alert(thirdPrime);   // 3
+
+    var myArray = [1, "hello", false];  // can contain multiple types
+    myArrayLength = myArray.length;     // 3
+
+    // can add elements dymanically
+    function range(max) {
+        var retVal = [];
+        for (var i = 0; i < max; i++) {
+            retVal[i] = i * 2;
+        }
+        return retVal;
+    }
+    alert(range(5));  // 0,2,4,6,8
+
+    // for, push, pop
+    function range(max) {
+        var retVal = [];
+        for (var i = 0; i < max; i++) {
+            retVal.push(i * 2);     // pushes onto the back
+        }
+        var last = retVal.pop()     // pops off the back
+        return retVal;
+    }
+    alert(range(5));  // 0,2,4,6,8
+
+    // strings:
+    // quoting: can use single or double quotes to surround the string
+    //          which ever one you don't use, you can use the other one inside
+    //          or escape them if you want to use the same character
+    // methods: + (concatenate)
+    //          myString.charAt(index)
+    //          myString.indexof(string) - find location of a substring
+    //          myString.split('char the string should be split on') into array
+    //          myString.slice(beginInd,endInd) - get a substring
+    //          myString.search(/regex/)
